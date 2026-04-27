@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAir | Indian Cities AQI Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    
+    <div id="toastContainer" class="toast-container"></div>
+
+    <div class="container fade-in">
+        <header>
+            <h1>Eco<span class="highlight">Air</span></h1>
+            <p>Predictive Environmental Intelligence</p>
+        </header>
+
+        <div class="search-box">
+            <div class="input-group">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" id="cityInput" placeholder="Enter Indian City (e.g. Mumbai, Delhi)..." autocomplete="off">
+            </div>
+            <button id="searchBtn">
+                <span>Check AQI</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Skeleton Loader -->
+        <div id="loader" class="hidden">
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-aqi"></div>
+                <div class="skeleton skeleton-badge"></div>
+                <div class="skeleton-grid">
+                    <div class="skeleton skeleton-item"></div>
+                    <div class="skeleton skeleton-item"></div>
+                    <div class="skeleton skeleton-item"></div>
+                    <div class="skeleton skeleton-item"></div>
+                    <div class="skeleton skeleton-item"></div>
+                    <div class="skeleton skeleton-item"></div>
+                </div>
+            </div>
+        </div>
+
+        <main id="resultCard" class="hidden">
+            <div class="main-info">
+                <h2 id="cityName">--</h2>
+                <p id="cityCoords" class="text-muted" style="font-size: 0.85rem; margin-top: 5px; margin-bottom: 10px; font-weight: 500;">--</p>
+                <div class="aqi-value-wrapper">
+                    <div class="aqi-ring">
+                        <span id="aqiNumber">--</span>
+                    </div>
+                    <p class="aqi-label">Predicted AQI</p>
+                </div>
+                <div id="aqiCategory" class="category-badge">--</div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <i class="fa-solid fa-temperature-three-quarters text-muted"></i>
+                    <span>Temp</span>
+                    <p id="temp">--</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-droplet text-muted"></i>
+                    <span>Humidity</span>
+                    <p id="hum">--</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-wind text-muted"></i>
+                    <span>Wind</span>
+                    <p id="wind">--</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-smog text-muted"></i>
+                    <span>Dust</span>
+                    <p id="dust">--</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-cloud text-muted"></i>
+                    <span>CO</span>
+                    <p id="co">--</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-industry text-muted"></i>
+                    <span>NO2</span>
+                    <p id="no2">--</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
