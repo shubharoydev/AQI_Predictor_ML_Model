@@ -36,7 +36,14 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
 
     try {
         // Unchanged Backend Call
-        const response = await fetch(`http://127.0.0.1:8000/predict/${city}`);
+        // Updated Call
+const response = await fetch(`http://127.0.0.1:8000/predict/${city}`, {
+    method: 'GET',
+    headers: {
+        'ngrok-skip-browser-warning': 'true',
+        'Content-Type': 'application/json'
+    }
+});
         const data = await response.json();
 
         if (response.status !== 200) throw new Error(data.detail || "Failed to fetch data");
